@@ -8,7 +8,7 @@ const nextConfig = {
   swcMinify: true,
   env: {
     BASE_URL: process.env.BASE_URL,
-    NOTION_AUTH_TOKEN: process.env.NOTION_AUTH_TOKEN,
+    NOTION_API_KEY: process.env.NOTION_API_KEY,
     NOTION_DATABSE_ID: process.env.NOTION_DATABSE_ID,
     GA_TRACKING_ID: process.env.GA_TRACKING_ID,
   },
