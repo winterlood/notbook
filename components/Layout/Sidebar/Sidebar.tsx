@@ -25,6 +25,8 @@ export default function Sidebar() {
   useEffect(() => {
     if (currentSection) {
       setExpandedSectionIndex(currentSection.index);
+    } else {
+      setExpandedSectionIndex(null);
     }
   }, [currentSection]);
 
@@ -65,12 +67,12 @@ export default function Sidebar() {
           );
         })}
       </SectionWrapper>
-      <SectionWrapper>
+      {/* <SectionWrapper>
         <SectionLabel>만든 사람</SectionLabel>
         <ProfileWrapper>
           <Profile />
         </ProfileWrapper>
-      </SectionWrapper>
+      </SectionWrapper> */}
       <StyledLicense>
         2023 Copyrighted By
         <br />

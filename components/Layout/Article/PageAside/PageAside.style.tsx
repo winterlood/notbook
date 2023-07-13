@@ -5,9 +5,12 @@ export const PageAsideWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  /* width: 220px; */
 
   img {
+    margin: 2rem 0rem;
     border-radius: 5px;
+    cursor: pointer;
   }
 `;
 

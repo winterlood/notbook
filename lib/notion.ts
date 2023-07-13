@@ -51,6 +51,14 @@ const convertContentPage = (pageObject: PageObjectResponse) => {
         }
         break;
       }
+      // case "Slug": {
+      //   if (property.type == "rich_text") {
+      //     res.slug = property.rich_text
+      //     .map((it) => it.plain_text)
+      //     .join(" ") as string;
+      //   }
+      //   break;
+      // }
     }
   });
 
@@ -117,7 +125,6 @@ export const fetchRecordMap = async (pageID: string) => {
     const recordMap: ExtendedRecordMap = await recordMapClient.getPage(pageID);
     return recordMap;
   } catch (e) {
-    console.log(e);
     throw new Error("FETCH RECORDMAP ERROR");
   }
 };

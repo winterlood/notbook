@@ -36,6 +36,8 @@ export default function SectionItem(props: Props) {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
+          {/* <Typography>{index}.</Typography> */}
+          {/* &nbsp; */}
           <Typography>{title}</Typography>
         </AccordionSummary>
         <StyledAccordionDetails>

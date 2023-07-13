@@ -8,9 +8,14 @@ import javascript from "react-syntax-highlighter/dist/esm/languages/prism/javasc
 import typescript from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
 import json from "react-syntax-highlighter/dist/esm/languages/prism/json";
 import c from "react-syntax-highlighter/dist/esm/languages/prism/c";
+import cpp from "react-syntax-highlighter/dist/esm/languages/prism/cpp";
+import cmake from "react-syntax-highlighter/dist/esm/languages/prism/cmake";
 
 // themes
 import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark";
+import vscDarkPlus from "react-syntax-highlighter/dist/esm/styles/prism/vsc-dark-plus";
+import darcula from "react-syntax-highlighter/dist/esm/styles/prism/darcula";
+
 import {
   CodeCaption,
   CodeWrapper,
@@ -27,6 +32,8 @@ SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
 SyntaxHighlighter.registerLanguage("json", json);
 SyntaxHighlighter.registerLanguage("c", c);
+SyntaxHighlighter.registerLanguage("cpp", cpp);
+SyntaxHighlighter.registerLanguage("cmake", cmake);
 
 function copyClipboard(text: string) {
   return window.navigator.clipboard.writeText(text);
@@ -44,7 +51,9 @@ export default function Code(props: CodeBlock) {
   const code = title.map((it) => it.join("")).join("");
   const caption =
     blockCaption && blockCaption.map((it) => it.join("")).join("");
-  const lang = language.at(0)?.at(0);
+  let lang = language.at(0)?.at(0);
+
+  if (lang == "C++") lang = "Cpp";
 
   const onClickCopyCode = async () => {
     await copyClipboard(code);
@@ -68,7 +77,7 @@ export default function Code(props: CodeBlock) {
         </TopbarRightCol>
       </TopBar>
       <SyntaxHighlighter
-        style={oneDark}
+        style={darcula}
         showLineNumbers={true}
         language={lang?.toLowerCase()}
         customStyle={{

@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 export const ChpaterItemWrapper = styled("div")<{ isSelected: boolean }>`
   cursor: pointer;
   padding-left: 1rem;
-  min-height: 46px;
+  min-height: 44px;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   display: flex;
@@ -21,6 +21,7 @@ export const ChpaterItemWrapper = styled("div")<{ isSelected: boolean }>`
     css`
       color: var(--primary-color);
       background-color: var(--primary-tinted-color);
+      border-left: 1.5px solid var(--primary-color);
       font-weight: bold;
     `}
 `;

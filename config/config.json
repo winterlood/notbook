@@ -1,11 +1,11 @@
 {
-  "homePageID": "ec75ebe24e4d423b9ee28195eecdef90",
-  "site": "Notbook",
+  "homePageID": "e53d90086d72444295ea6c9686f5cc9a",
+  "site": "devskim blog",
   "description": "Notion + WebBook = Notbook",
   "renderMode": "PRE_ISR",
   "menus": [],
   "profile": {
-    "name": "이정환",
-    "nickname": "winterlood"
+    "name": "김수영",
+    "nickname": "swimingkim"
   }
 }

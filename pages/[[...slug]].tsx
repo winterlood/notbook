@@ -58,9 +58,15 @@ export const getStaticPaths = async () => {
     try {
       const pages = await fetchAllPages();
       console.log(`pre-render page count : ${pages.length}`);
+      const paths = pages.map((page) => ({ params: { slug: [page.id] } }));
+      paths.push({
+        params: {
+          slug: ["index"]
+        }
+      })
       return {
         fallback: renderMode === "SSG" ? false : "blocking",
-        paths: pages.map((page) => ({ params: { slug: [page.id] } })),
+        paths:paths,
       };
     } catch (err) {
       // when fetchPage is failed running like ISR
@@ -88,7 +94,9 @@ function isRejected<T>(
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params as { slug?: string[] };
 
-  const pageID = Array.isArray(slug) ? slug[0] : config.homePageID;
+  let pageID = Array.isArray(slug) ? slug[0] : config.homePageID;
+  if (pageID.indexOf("index") != -1) pageID = config.homePageID;
+
   const isContentPage = Array.isArray(slug) && slug.length === 1;
 
   const [sectionsReq, recordMapReq] = await Promise.allSettled([
@@ -130,6 +138,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       currentSection: currentSection,
       sections: sections,
       recordMap: recordMap,
+      // slug: slug,
     },
     revalidate: 1,
   };

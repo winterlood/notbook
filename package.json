@@ -9,7 +9,7 @@
     "lint": "next lint",
     "gh_build": "next build && next export",
     "gh_predeploy": "npm run build",
-    "gh_deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles"
+    "gh_deploy": "mv out/index/index.html out/index.html && rm -rf out/index && touch out/.nojekyll && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -25,6 +25,7 @@
     "@types/nprogress": "^0.2.0",
     "@types/react-syntax-highlighter": "^15.5.6",
     "@vercel/analytics": "^0.1.11",
+    "@vercel/og": "^0.5.4",
     "babel-plugin-styled-components": "^2.0.7",
     "next": "13.1.6",
     "next-sitemap": "^3.1.55",

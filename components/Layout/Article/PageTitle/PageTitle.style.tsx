@@ -8,7 +8,9 @@ export const PageTitleWrapper = styled("div")`
   border-bottom: 1px solid var(--bg-opacity-color);
 `;
 
-export const StyledTitle = styled("div")``;
+export const StyledTitle = styled("div")`
+  font-family: bold;
+`;
 
 export const StyledBanner = styled("div")`
   padding-top: 1rem;
