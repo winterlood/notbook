@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gh_build": "next build && next export",
+    "gh_predeploy": "npm run build",
+    "gh_deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -39,6 +42,7 @@
     "@types/react-dom": "18.0.11",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
+    "gh-pages": "^5.0.0",
     "typescript": "4.9.5"
   }
 }

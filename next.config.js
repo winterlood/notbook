@@ -4,6 +4,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: "/notbook",
   reactStrictMode: false,
   swcMinify: true,
   env: {
@@ -19,6 +20,10 @@ const nextConfig = {
     });
     return config;
   },
+  images: {
+    loader: 'akamai',
+    path: ''
+  }
 };
 
 // module.exports = withPlugins([], nextConfig);
