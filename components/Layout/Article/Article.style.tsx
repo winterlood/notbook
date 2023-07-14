@@ -18,6 +18,7 @@ export const StyledNotionRenderer = styled(NotionRenderer)`
   min-height: 0px !important;
   main {
     width: 100% !important;
+    overflow: hidden !important;
   }
   .notion-page-scroller {
     min-height: inherit !important;
@@ -34,7 +35,7 @@ export const StyledNotionRenderer = styled(NotionRenderer)`
     gap: 2rem;
     .notion-page-content-inner {
       flex: 1;
-      max-width: none;
+      /* max-width: none; */
     }
     .notion-aside {
       flex: none;

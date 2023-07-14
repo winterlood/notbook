@@ -830,7 +830,7 @@ svg.notion-page-icon {
 }
 
 pre {
-  min-width: var(--notion-max-width) !important;
+  /* min-width: var(--notion-max-width) !important; */
   white-space: break-spaces !important;
 }
 
@@ -1994,13 +1994,13 @@ code {
   background: var(--select-color-2);
 }
 
-.notion-frame .katex-display .katex {
+/* .notion-frame .katex-display .katex {
   padding-right: 32px;
 }
 
 .notion-frame .katex > .katex-html {
   white-space: normal;
-}
+} */
 
 .notion-page-title {
   display: inline-flex;
@@ -2611,6 +2611,9 @@ code {
   border: 1px solid var(--fg-color-5);
   padding: 8px 8px;
   white-space: pre-wrap;
+  width: unset !important;
+  max-width: 70%;
+  min-width: 80px;
 }
 
 .notion-external {

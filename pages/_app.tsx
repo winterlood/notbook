@@ -1,6 +1,7 @@
 import "styles/globals.css";
 import "styles/pallette.css";
 import "styles/notion.css";
+import 'katex/dist/katex.min.css'
 
 import * as React from "react";
 import { AppProps } from "next/app";
