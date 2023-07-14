@@ -125,6 +125,7 @@ export const fetchRecordMap = async (pageID: string) => {
     const recordMap: ExtendedRecordMap = await recordMapClient.getPage(pageID);
     return recordMap;
   } catch (e) {
+    console.log(e);
     throw new Error("FETCH RECORDMAP ERROR");
   }
 };

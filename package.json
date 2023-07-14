@@ -9,7 +9,7 @@
     "lint": "next lint",
     "gh_build": "next build && next export",
     "gh_predeploy": "npm run build",
-    "gh_deploy": "mv out/index/index.html out/index.html && rm -rf out/index && touch out/.nojekyll && gh-pages -d out --dotfiles"
+    "gh_deploy": "python generate_sitemap.py && mv out/index/index.html out/index.html && rm -rf out/index && touch out/.nojekyll && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
