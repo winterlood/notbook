@@ -29,11 +29,31 @@ const convertContentPage = (pageObject: PageObjectResponse) => {
         if (property.type === "select") {
           res.section.title = property.select?.name || "";
         }
+        else if (property.type == "rollup") {
+          if (property.rollup.type == "array" && property.rollup.array.length > 0) {
+            const item = property.rollup.array[0];
+            for (const [key, value] of Object.entries(item)) {
+              if (key == "select") {
+                res.section.title = value.name
+              }
+            }
+          }
+        }
         break;
       }
       case "section_index": {
         if (property.type === "number") {
           res.section.index = property.number as number;
+        }
+        else if (property.type == "rollup") {
+          if (property.rollup.type == "array" && property.rollup.array.length > 0) {
+            const item = property.rollup.array[0];
+            for (const [key, value] of Object.entries(item)) {
+              if (key == "number") {
+                res.section.index = value
+              }
+            }
+          }
         }
         break;
       }
