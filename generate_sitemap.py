@@ -7,7 +7,7 @@ def add_element(url):
     ET.SubElement(doc, "loc").text = url
 
 
-domain = 'https://swimingkim.github.io/notbook'
+domain = 'https://swimingkim.github.io/blog'
 
 root = ET.Element('urlset')
 root.attrib['xmlns'] = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -17,6 +17,8 @@ add_element(domain)
 pages = glob.glob("out/*.html")
 
 for page in pages:
+    if "404" in page: continue
+    if "test" in page: continue
     url = page.replace('out/', domain+"/").replace('.html', '')
     add_element(url)
     print(url)

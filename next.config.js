@@ -4,7 +4,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/notbook",
+  basePath: "/blog",
   reactStrictMode: false,
   swcMinify: true,
   env: {
