@@ -94,8 +94,9 @@ function isRejected<T>(
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params as { slug?: string[] };
 
-  let pageID = Array.isArray(slug) ? slug[0] : config.homePageID;
-  if (pageID.indexOf("index") != -1) pageID = config.homePageID;
+  const homePageID = process.env.NOTION_HOMEPAGE_ID as string;
+  let pageID = Array.isArray(slug) ? slug[0] : homePageID;
+  if (pageID.indexOf("index") != -1) pageID = homePageID;
 
   const isContentPage = Array.isArray(slug) && slug.length === 1;
 
