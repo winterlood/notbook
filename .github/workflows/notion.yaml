@@ -26,8 +26,10 @@ jobs:
           echo "ANALYZE=${{ secrets.ANALYZE }}" >> .env
           echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
           echo "GA_TRACKING_ID=${{ secrets.GA_TRACKING_ID }}" >> .env
+          echo "ANALYZE=${{ secrets.ANALYZE }}" >> .env
           echo "NOTION_API_KEY=${{ secrets.NOTION_API_KEY }}" >> .env
           echo "NOTION_DATABSE_ID=${{ secrets.NOTION_DATABSE_ID }}" >> .env
+          echo "NOTION_HOMEPAGE_ID=${{ secrets.NOTION_HOMEPAGE_ID }}" >> .env
           cat .env
 
       - name: Installing my packages
