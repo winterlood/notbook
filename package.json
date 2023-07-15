@@ -9,6 +9,7 @@
     "lint": "next lint",
     "gh_build": "next build && next export",
     "gh_predeploy": "npm run build",
+    "gh_action_deploy": "python generate_sitemap.py && touch out/.nojekyll",
     "gh_deploy": "python generate_sitemap.py && mv out/index/index.html out/index.html && rm -rf out/index && touch out/.nojekyll && gh-pages -d out --dotfiles"
   },
   "dependencies": {

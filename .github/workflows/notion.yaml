@@ -25,11 +25,11 @@ jobs:
         run: npm install --legacy-peer-deps 
 
       - name: Build my App
-        run: npm run gh_build && npm run gh_deploy
+        run: npm run gh_build && npm run gh_action_deploy
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          BRANCH: gh_pages # The branch the action should deploy to.
+          BRANCH: test # The branch the action should deploy to.
           FOLDER: out # The folder the action should deploy.
