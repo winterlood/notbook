@@ -1,5 +1,6 @@
 import glob
 import xml.etree.cElementTree as ET
+import os
 
 def add_element(url):
     global root
@@ -27,3 +28,8 @@ tree = ET.ElementTree(root)
 ET.indent(tree, space="\t", level=0)
 tree.write('out/sitemap.xml', encoding='utf-8', xml_declaration=True)
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+print(dir_path)
+
+os.rename(dir_path + "/out/index/index.html", dir_path + "/out/index.html")
+os.rmdir(dir_path + "/out/index")
