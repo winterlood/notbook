@@ -21,6 +21,15 @@ jobs:
         with:
           node-version: '16.x'
 
+      - name: Setting .env
+        run: |
+          echo "ANALYZE=${{ secrets.ANALYZE }}" >> .env
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
+          echo "GA_TRACKING_ID=${{ secrets.GA_TRACKING_ID }}" >> .env
+          echo "NOTION_API_KEY=${{ secrets.NOTION_API_KEY }}" >> .env
+          echo "NOTION_DATABSE_ID=${{ secrets.NOTION_DATABSE_ID }}" >> .env
+          cat .env
+
       - name: Installing my packages
         run: npm install --legacy-peer-deps 
 
