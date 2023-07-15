@@ -37,7 +37,7 @@ export const SidebarWrapper = styled("aside")`
   width: ${ASIDE_WIDTH};
   overflow-y: scroll;
   border-right: 1px solid var(--bg-opacity-color);
-  background-color: white;
+  /* background-color: white; */
 
   padding-right: 0.5rem;
   @media (max-width: ${breakpoint.desktop}) {
