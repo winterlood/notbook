@@ -1,4 +1,4 @@
-import { Alert, Button, styled } from "@mui/material";
+import { Alert, Button, TextField, styled } from "@mui/material";
 import { useState } from "react";
 
 
@@ -11,19 +11,24 @@ const Wrapper = styled("div") ({
     backgroundColor: "white"
 });
 
+const ButtonWrapper = styled(Button) ({
+    marginLeft: "20px"
+})
+
 const user = process.env.GIT_USER;
 const repo = process.env.REPO_NAME;
-const token = process.env.GITHUB_TOKEN;
 const workflow_id = process.env.WORKFLOW_ID;
-
-console.log(user, repo);
 
 export default function Deploy() {
 
-    const [status, setStatus] = useState(true);
+    const [token, setToken] = useState("");
+
+    const onChange = (e: React.ChangeEvent) => {
+        setToken((e.target as any).value);
+    }
 
     const onClick = async () => {
-        setStatus(false);
+        setToken("");
 
         const response = await fetch(`https://api.github.com/repos/${user}/${repo}/actions/workflows/${workflow_id}/dispatches`, {
             method: "POST",
@@ -37,25 +42,24 @@ export default function Deploy() {
             }), // body data type must match "Content-Type" header
           });
 
-        response.json().then((data) => {
+        response.text().then((data) => {
+            console.log("result", data)
             if (data.length == 0) {
                 alert("success");
             }
             else {
-                alert(data.message);
+                alert(JSON.parse(data)["message"]);
             }
-            console.log("data", data)
         }).catch((err) => {
             console.log("err", err)
-        }).finally(() => {
-            setStatus(true);
-        })
+        });
 
     }
 
     return (
         <Wrapper>
-            <Button variant="contained" color="primary" disabled={!status} onClick={onClick}>Deploy</Button>
+            <TextField id="outlined-basic" label="TOKEN" variant="outlined" value={token} onChange={onChange} />
+            <ButtonWrapper variant="contained" color="primary" disabled={token.length == 0} onClick={onClick} >Deploy</ButtonWrapper>
         </Wrapper>
     );
 }

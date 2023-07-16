@@ -13,7 +13,6 @@ const nextConfig = {
     NOTION_DATABSE_ID: process.env.NOTION_DATABSE_ID,
     NOTION_HOMEPAGE_ID: process.env.NOTION_HOMEPAGE_ID,
     GA_TRACKING_ID: process.env.GA_TRACKING_ID,
-    GITHUB_TOKEN: process.env.GITHUB_TOKEN,
     GIT_USER: process.env.GIT_USER,
     REPO_NAME: process.env.REPO_NAME,
     WORKFLOW_ID: process.env.WORKFLOW_ID,
