@@ -1,18 +1,19 @@
 import { Alert, Button, TextField, styled } from "@mui/material";
 import { useState } from "react";
 
-
-const Wrapper = styled("div") ({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100vh",
-    width: "100%",
-    backgroundColor: "white"
-});
+const Wrapper = styled("div")<{success: boolean}>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh !important;
+    width: 100% !important;
+    background-color: white;
+    /* background-color: ${(props: any) => props.success ? "lightgreen" : "red"}; */
+`
 
 const ButtonWrapper = styled(Button) ({
-    marginLeft: "20px"
+    marginLeft: "20px",
+    marginBottom: "20px"
 })
 
 const user = process.env.GIT_USER;
@@ -22,6 +23,8 @@ const workflow_id = process.env.WORKFLOW_ID;
 export default function Deploy() {
 
     const [token, setToken] = useState("");
+    const [success, setSuccess] = useState(true);
+    const [message, setMessage] = useState(" ");
 
     const onChange = (e: React.ChangeEvent) => {
         setToken((e.target as any).value);
@@ -45,20 +48,23 @@ export default function Deploy() {
         response.text().then((data) => {
             console.log("result", data)
             if (data.length == 0) {
-                alert("success");
+                setSuccess(true);
+                setMessage("success");
             }
             else {
-                alert(JSON.parse(data)["message"]);
+                setSuccess(false);
+                setMessage(JSON.parse(data)["message"]);
             }
         }).catch((err) => {
-            console.log("err", err)
+            setSuccess(false);
+            setMessage(err);
         });
 
     }
 
     return (
-        <Wrapper>
-            <TextField id="outlined-basic" label="TOKEN" variant="outlined" value={token} onChange={onChange} />
+        <Wrapper success={success}>
+            <TextField id="outlined-basic" label="TOKEN" variant="outlined" value={token} onChange={onChange}  error={!success} helperText={message}/>
             <ButtonWrapper variant="contained" color="primary" disabled={token.length == 0} onClick={onClick} >Deploy</ButtonWrapper>
         </Wrapper>
     );
