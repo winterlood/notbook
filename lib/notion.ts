@@ -32,10 +32,8 @@ const convertContentPage = (pageObject: PageObjectResponse) => {
         else if (property.type == "rollup") {
           if (property.rollup.type == "array" && property.rollup.array.length > 0) {
             const item = property.rollup.array[0];
-            for (const [key, value] of Object.entries(item)) {
-              if (key == "select") {
-                res.section.title = value.name
-              }
+            if (item.type == "title") {
+              res.section.title = item.title[0].plain_text;
             }
           }
         }

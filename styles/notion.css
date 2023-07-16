@@ -402,13 +402,16 @@
 }
 
 .notion-title {
-  width: 100%;
+  /* width: 100%; */
   font-size: 2.2rem;
   font-weight: 600;
   margin-top: 20px;
   margin-left: 100px;
+  margin-right: 20px;
   margin-bottom: 20px;
   line-height: 1.2;
+  white-space: break-spaces;
+  word-break: break-all;
 }
 
 .notion-h {
@@ -2121,6 +2124,14 @@ code {
   .notion-property-relation
   .notion-page-title-text {
   border-bottom: 1px solid;
+}
+
+.notion-property-relation > a {
+  pointer-events: none;
+}
+
+.notion-property-relation > a > span > span {
+  border-bottom: 0px solid !important;
 }
 
 .notion-user {
