@@ -43,8 +43,13 @@ export default function Deploy() {
           });
 
         response.json().then((data) => {
+            if (data.length == 0) {
+                alert("success");
+            }
+            else {
+                alert(data.message);
+            }
             console.log("data", data)
-            // alert(data.message);
         }).catch((err) => {
             console.log("err", err)
         }).finally(() => {
