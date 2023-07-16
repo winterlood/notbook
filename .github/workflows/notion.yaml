@@ -32,7 +32,7 @@ jobs:
           echo "NOTION_HOMEPAGE_ID=${{ secrets.NOTION_HOMEPAGE_ID }}" >> .env
           echo "GIT_USER=${{ secrets.GIT_USER }}" >> .env
           echo "REPO_NAME=${{ secrets.REPO_NAME }}" >> .env
-          echo "GIT_TOKEN=${{ secrets.GIT_TOKEN }}" >> .env
+          echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> .env
           echo "WORKFLOW_ID=${{ secrets.WORKFLOW_ID }}" >> .env
           cat .env
 

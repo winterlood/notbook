@@ -13,7 +13,7 @@ const Wrapper = styled("div") ({
 
 const user = process.env.GIT_USER;
 const repo = process.env.REPO_NAME;
-const token = process.env.GIT_TOKEN;
+const token = process.env.GITHUB_TOKEN;
 const workflow_id = process.env.WORKFLOW_ID;
 
 console.log(user, repo);
