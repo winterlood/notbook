@@ -996,7 +996,8 @@ code {
 
 .notion-bookmark {
   margin: 4px 0;
-  width: 100%;
+  /* width: 100%; */
+  width: var(--notion-max-width);
   box-sizing: border-box;
   text-decoration: none;
   border: 1px solid var(--fg-color-1);
