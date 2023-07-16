@@ -12,6 +12,7 @@ import cpp from "react-syntax-highlighter/dist/esm/languages/prism/cpp";
 import cmake from "react-syntax-highlighter/dist/esm/languages/prism/cmake";
 import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
 import bash from "react-syntax-highlighter/dist/esm/languages/prism/bash";
+import yaml from "react-syntax-highlighter/dist/esm/languages/prism/yaml";
 
 // themes
 import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark";
@@ -38,6 +39,7 @@ SyntaxHighlighter.registerLanguage("cpp", cpp);
 SyntaxHighlighter.registerLanguage("cmake", cmake);
 SyntaxHighlighter.registerLanguage("python", python);
 SyntaxHighlighter.registerLanguage("bash", bash);
+SyntaxHighlighter.registerLanguage("yaml", yaml);
 
 function copyClipboard(text: string) {
   return window.navigator.clipboard.writeText(text);
