@@ -4,8 +4,11 @@ import { useState } from "react";
 
 const Wrapper = styled("div") ({
     display: "flex",
+    alignItems: "center",
     justifyContent: "center",
-    marginTop: "10px"
+    height: "100vh",
+    width: "100%",
+    backgroundColor: "white"
 });
 
 const user = process.env.GIT_USER;
@@ -13,7 +16,7 @@ const repo = process.env.REPO_NAME;
 const token = process.env.GITHUB_TOKEN;
 const workflow_id = process.env.WORKFLOW_ID;
 
-console.log(user, repo, token, workflow_id);
+console.log(user, repo);
 
 export default function Deploy() {
 
