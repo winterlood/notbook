@@ -8,7 +8,7 @@ const Wrapper = styled("div") ({
     marginTop: "10px"
 });
 
-const user = process.env.GITHUB_USER;
+const user = process.env.GIT_USER;
 const repo = process.env.REPO_NAME;
 const token = process.env.GITHUB_TOKEN;
 const workflow_id = process.env.WORKFLOW_ID;
