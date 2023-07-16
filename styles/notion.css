@@ -832,14 +832,13 @@ svg.notion-page-icon {
   max-width: var(--notion-max-width);
 }
 
-pre {
-  /* min-width: var(--notion-max-width) !important; */
+/* pre {
   white-space: break-spaces !important;
 }
 
 code {
   white-space: break-spaces !important;
-}
+} */
 
 .notion-asset-wrapper iframe {
   border: none;

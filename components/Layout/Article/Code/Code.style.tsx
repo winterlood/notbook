@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 
 export const CodeWrapper = styled("div")`
-  width: 100%;
+  /* width: 100%; */
+  width: var(--notion-max-width);
   font-size: 14px;
   margin-top: 10px;
 `;
