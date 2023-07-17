@@ -26,6 +26,5 @@ jobs:
           echo "GITHUB_REPOSITORY=${{ github.repository }}" >> .env
           cat ${{ github.repository_owner }}
           cat ${{ github.repository }}
-          cat ${{ secrets.GITHUB_REPOSITORY_OWNER }}
           cat .env
           cat .env | grep GITHUB_REPOSITORY | wc
