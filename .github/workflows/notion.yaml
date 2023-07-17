@@ -46,6 +46,6 @@ jobs:
           BRANCH: gh-pages
           FOLDER: out
           COMMIT_NAME: ${{ secrets.GITHUB_REPOSITORY_OWNER }}
-          COMMIT_EMAIL: "rumex13@naver.com"
+          COMMIT_EMAIL: ${{ secrets.COMMIT_EMAIL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Build: ({sha}) {msg}"
