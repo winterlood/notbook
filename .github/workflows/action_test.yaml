@@ -27,4 +27,3 @@ jobs:
           cat ${{ github.repository_owner }}
           cat ${{ github.repository }}
           cat .env
-          cat .env | grep GITHUB_REPOSITORY | wc
