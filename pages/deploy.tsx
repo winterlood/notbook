@@ -17,6 +17,7 @@ const ButtonWrapper = styled(Button) ({
 })
 
 const repo_info = process.env.GITHUB_REPOSITORY;
+console.log(repo_info);
 
 export default function Deploy() {
 
