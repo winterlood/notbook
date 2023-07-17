@@ -30,7 +30,7 @@ jobs:
           echo "NOTION_API_KEY=${{ secrets.NOTION_API_KEY }}" >> .env
           echo "NOTION_DATABSE_ID=${{ secrets.NOTION_DATABSE_ID }}" >> .env
           echo "NOTION_HOMEPAGE_ID=${{ secrets.NOTION_HOMEPAGE_ID }}" >> .env
-          echo "GITHUB_REPOSITORY=${{ secrets.GITHUB_REPOSITORY }}" >> .env
+          echo "GITHUB_REPOSITORY=${{ github.repository }}" >> .env
           cat .env
 
       - name: Installing my packages
@@ -45,7 +45,7 @@ jobs:
           REPO: self
           BRANCH: gh-pages
           FOLDER: out
-          COMMIT_NAME: ${{ secrets.GITHUB_REPOSITORY_OWNER }}
+          COMMIT_NAME: ${{ github.repository_owner }}
           COMMIT_EMAIL: ${{ secrets.COMMIT_EMAIL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Build: ({sha}) {msg}"

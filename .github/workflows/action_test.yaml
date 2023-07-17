@@ -24,5 +24,8 @@ jobs:
           echo "GA_TRACKING_ID=${{ secrets.GA_TRACKING_ID }}" >> .env
           echo "ANALYZE=${{ secrets.ANALYZE }}" >> .env
           echo "GITHUB_REPOSITORY=${{ github.repository }}" >> .env
+          cat ${{ github.repository_owner }}
+          cat ${{ github.repository }}
+          cat ${{ secrets.GITHUB_REPOSITORY_OWNER }}
           cat .env
           cat .env | grep GITHUB_REPOSITORY | wc
