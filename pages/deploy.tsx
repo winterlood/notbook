@@ -16,9 +16,7 @@ const ButtonWrapper = styled(Button) ({
     marginBottom: "20px"
 })
 
-const user = process.env.GIT_USER;
-const repo = process.env.REPO_NAME;
-const workflow_id = process.env.WORKFLOW_ID;
+const repo_info = process.env.GITHUB_REPOSITORY_OWNER;
 
 export default function Deploy() {
 
@@ -33,7 +31,7 @@ export default function Deploy() {
     const onClick = async () => {
         setToken("");
 
-        const response = await fetch(`https://api.github.com/repos/${user}/${repo}/actions/workflows/${workflow_id}/dispatches`, {
+        const response = await fetch(`https://api.github.com/repos/${repo_info}/actions/workflows/notion.yaml/dispatches`, {
             method: "POST",
             headers: {
               "Accept": "application/vnd.github+json",

@@ -2,9 +2,10 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
+const repo_info = process.env.GITHUB_REPOSITORY;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/blog",
+  basePath: "/"+repo_info.split("/")[1],
   reactStrictMode: false,
   swcMinify: true,
   env: {

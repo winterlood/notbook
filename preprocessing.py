@@ -1,14 +1,18 @@
 import glob
 import xml.etree.cElementTree as ET
 import os
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def add_element(url):
     global root
     doc = ET.SubElement(root, "url")
     ET.SubElement(doc, "loc").text = url
 
-
-domain = 'https://swimingkim.github.io/blog'
+repo_info = os.getenv("GITHUB_REPOSITORY").split("/")
+domain = 'https://%s.github.io/%s' % (repo_info[0], repo_info[1])
 
 root = ET.Element('urlset')
 root.attrib['xmlns'] = "http://www.sitemaps.org/schemas/sitemap/0.9"
