@@ -16,7 +16,7 @@ const ButtonWrapper = styled(Button) ({
     marginBottom: "20px"
 })
 
-const repo_info = process.env.GITHUB_REPOSITORY_OWNER;
+const repo_info = process.env.GITHUB_REPOSITORY;
 
 export default function Deploy() {
 
