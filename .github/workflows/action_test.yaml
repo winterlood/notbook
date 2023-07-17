@@ -19,12 +19,10 @@ jobs:
 
       - name: Setting .env
         run: |
-         cat ${{ github.repository }}
           echo "ANALYZE=${{ secrets.ANALYZE }}" >> .env
           echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
           echo "GA_TRACKING_ID=${{ secrets.GA_TRACKING_ID }}" >> .env
           echo "ANALYZE=${{ secrets.ANALYZE }}" >> .env
           echo "GITHUB_REPOSITORY=${{ github.repository }}" >> .env
           cat .env
-          cat .env | grep GITHUB_REPOSITORY | wc -m
-          swimingkim/blog
+          cat .env | grep GITHUB_REPOSITORY | wc
