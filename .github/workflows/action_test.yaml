@@ -3,9 +3,6 @@
 
 name: GitHub Action Test
 
-env:
-  env_var: ${{ vars.ENV_CONTEXT_VAR }}
-
 on:
   # push:
   #   branches: [main]
@@ -20,19 +17,6 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
-      - name: Use variables
-        run: |
-          echo "repository variable : $REPOSITORY_VAR"
-          echo "organization variable : $ORGANIZATION_VAR"
-          echo "overridden variable : $OVERRIDE_VAR"
-          echo "variable from shell environment : $env_var"
-      
-      - name: ${{ vars.HELLO_WORLD_STEP }}
-        if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
-        uses: actions/hello-world-javascript-action@main
-        with:
-          who-to-greet: ${{ vars.GREET_NAME }}
-
       - name: Setting .env
         run: |
          cat ${{ github.repository }}
@@ -40,7 +24,7 @@ jobs:
           echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
           echo "GA_TRACKING_ID=${{ secrets.GA_TRACKING_ID }}" >> .env
           echo "ANALYZE=${{ secrets.ANALYZE }}" >> .env
-          echo "GITHUB_REPOSITORY=${{ secrets.GITHUB_REPOSITORY }}" >> .env
+          echo "GITHUB_REPOSITORY=${{ github.repository }}" >> .env
           cat .env
           cat .env | grep GITHUB_REPOSITORY | wc -m
           swimingkim/blog
