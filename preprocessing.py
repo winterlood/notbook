@@ -1,10 +1,6 @@
 import glob
 import xml.etree.cElementTree as ET
 import os
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 def add_element(url):
     global root
@@ -12,6 +8,7 @@ def add_element(url):
     ET.SubElement(doc, "loc").text = url
 
 repo_info = os.getenv("GITHUB_REPOSITORY").split("/")
+print(repo_info)
 domain = 'https://%s.github.io/%s' % (repo_info[0], repo_info[1])
 
 root = ET.Element('urlset')
