@@ -12,6 +12,7 @@ is_success = sys.argv[1] == "success"
 history_page_id = os.getenv("NOTION_HISTORY_ID")
 notion_api_key = os.getenv("NOTION_API_KEY")
 title = sys.argv[2] + "#" + sys.argv[2]
+print(title)
 
 success_json = {
     "parent": { "database_id": history_page_id },

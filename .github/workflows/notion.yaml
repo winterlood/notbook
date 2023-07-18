@@ -30,6 +30,7 @@ jobs:
           echo "NOTION_API_KEY=${{ secrets.NOTION_API_KEY }}" >> .env
           echo "NOTION_DATABSE_ID=${{ secrets.NOTION_DATABSE_ID }}" >> .env
           echo "NOTION_HOMEPAGE_ID=${{ secrets.NOTION_HOMEPAGE_ID }}" >> .env
+          echo "NOTION_HISTORY_ID=${{ secrets.NOTION_HISTORY_ID }}" >> .env
           echo "GITHUB_REPOSITORY=${{ github.repository }}" >> .env
           cat .env
 
@@ -49,3 +50,8 @@ jobs:
           COMMIT_EMAIL: ${{ secrets.COMMIT_EMAIL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Build: ({sha}) {msg}"
+      
+      - name: Send To Notion
+        run: |
+          pip install python-dotenv
+          python send_to_notion.py ${{ job.status }} ${{ github.workflow }} ${{ github.run_number }}
