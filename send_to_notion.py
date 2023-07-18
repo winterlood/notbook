@@ -3,9 +3,13 @@ import json
 import os
 import sys
 
-is_success = len(sys.argv) == 2 and sys.argv[1] == "success"
+if len(sys.argv) != 3:
+    sys.exit()
+
+is_success = sys.argv[1] == "success"
 history_page_id = os.getenv("NOTION_HISTORY_ID")
 notion_api_key = os.getenv("NOTION_API_KEY")
+run_number = sys.argv[2]
 
 success_json = {
     "parent": { "database_id": history_page_id },
@@ -15,7 +19,7 @@ success_json = {
             "title": [
                 {
                     "text": {
-                        "content": "Success"
+                        "content": "Github Action #" + run_number
                     }
                 }
             ]
@@ -36,7 +40,7 @@ fail_json = {
             "title": [
                 {
                     "text": {
-                        "content": "Fail"
+                        "content": "Github Action #" + run_number
                     }
                 }
             ]
