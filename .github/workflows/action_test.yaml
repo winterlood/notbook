@@ -30,6 +30,7 @@ jobs:
           echo ${{ secrets.GITHUB_REPOSITORY_OWNER }}
           echo ${{ github.run_id }}
           echo ${{ github.run_number }}
+          echo ${{ github.workflow }}
           echo ${{ runner.name }}
           cat .env
 

@@ -5,6 +5,7 @@ import sys
 
 is_success = len(sys.argv) == 2 and sys.argv[1] == "success"
 history_page_id = os.getenv("NOTION_HISTORY_ID")
+notion_api_key = os.getenv("NOTION_API_KEY")
 
 success_json = {
     "parent": { "database_id": history_page_id },
@@ -76,7 +77,7 @@ fail_json = {
 
 result_json = success_json if is_success else fail_json
 
-headers = {'Authorization': 'Bearer secret_dhSwU4iZBw2y4qzz6kUCiSaIPTFDhlDSIaBB3bBr1Il',"Content-Type": "application/json", "Notion-Version": "2022-06-28"}
+headers = {'Authorization': 'Bearer ' + notion_api_key,"Content-Type": "application/json", "Notion-Version": "2022-06-28"}
 res = requests.post("https://api.notion.com/v1/pages", headers=headers, data=json.dumps(result_json))
 
 result_code = res.status_code
