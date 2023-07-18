@@ -37,4 +37,5 @@ jobs:
 
       - name: Send To Notion
         run: |
+          pip install dotenv-dev
           python send_to_notion.py ${{ job.status }} ${{ github.run_number }}

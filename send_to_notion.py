@@ -2,7 +2,9 @@ import requests
 import json
 import os
 import sys
+from dotenv import load_dotenv
 
+load_dotenv()
 if len(sys.argv) != 3:
     sys.exit()
 
