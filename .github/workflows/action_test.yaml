@@ -24,9 +24,13 @@ jobs:
           echo "GA_TRACKING_ID=${{ secrets.GA_TRACKING_ID }}" >> .env
           echo "ANALYZE=${{ secrets.ANALYZE }}" >> .env
           echo "GITHUB_REPOSITORY=${{ github.repository }}" >> .env
+          echo "NOTION_HISTORY_ID=${{ secrets.NOTION_HISTORY_ID }}" >> .env
           echo ${{ github.repository_owner }}
           echo ${{ github.repository }}
           echo ${{ secrets.GITHUB_REPOSITORY_OWNER }}
+          echo ${{ github.run_id }}
+          echo ${{ github.run_number }}
+          echo ${{ runner.name }}
           cat .env
 
       - name: Send To Notion
