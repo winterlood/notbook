@@ -5,13 +5,17 @@ import sys
 from dotenv import load_dotenv
 
 load_dotenv()
+
+print(load_dotenv)
+print("arg", len(sys.argv))
+
 if len(sys.argv) != 4:
     sys.exit()
 
 is_success = sys.argv[1] == "success"
 history_page_id = os.getenv("NOTION_HISTORY_ID")
 notion_api_key = os.getenv("NOTION_API_KEY")
-title = sys.argv[2] + "#" + sys.argv[2]
+title = sys.argv[2] + "#" + sys.argv[3]
 print(title)
 
 success_json = {
