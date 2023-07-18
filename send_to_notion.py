@@ -5,15 +5,13 @@ import sys
 from dotenv import load_dotenv
 
 load_dotenv()
-if len(sys.argv) != 3:
+if len(sys.argv) != 4:
     sys.exit()
 
 is_success = sys.argv[1] == "success"
 history_page_id = os.getenv("NOTION_HISTORY_ID")
 notion_api_key = os.getenv("NOTION_API_KEY")
-run_number = sys.argv[2]
-print(len(history_page_id))
-print(len(notion_api_key))
+title = sys.argv[2] + "#" + sys.argv[2]
 
 success_json = {
     "parent": { "database_id": history_page_id },
@@ -23,7 +21,7 @@ success_json = {
             "title": [
                 {
                     "text": {
-                        "content": "Github Action #" + run_number
+                        "content": title
                     }
                 }
             ]
@@ -44,7 +42,7 @@ fail_json = {
             "title": [
                 {
                     "text": {
-                        "content": "Github Action #" + run_number
+                        "content": title
                     }
                 }
             ]
