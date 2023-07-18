@@ -79,4 +79,7 @@ result_json = success_json if is_success else fail_json
 headers = {'Authorization': 'Bearer secret_dhSwU4iZBw2y4qzz6kUCiSaIPTFDhlDSIaBB3bBr1Il',"Content-Type": "application/json", "Notion-Version": "2022-06-28"}
 res = requests.post("https://api.notion.com/v1/pages", headers=headers, data=json.dumps(result_json))
 
-print(res.status_code)
+result_code = res.status_code
+print(result_code)
+if result_code != 200:
+    print(res.json())
