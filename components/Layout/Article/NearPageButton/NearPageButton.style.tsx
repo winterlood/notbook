@@ -7,6 +7,7 @@ export const NearPageButtonWrapper = styled("div")<{ type: "PREV" | "NEXT" }>`
   flex-direction: row;
   align-items: center;
   gap: 2rem;
+  width: var(--notion-max-width);
   color: var(--fg-color);
   padding: 0.8rem 2.5rem;
   border-radius: 10px;
