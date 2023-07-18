@@ -28,3 +28,7 @@ jobs:
           echo ${{ github.repository }}
           echo ${{ secrets.GITHUB_REPOSITORY_OWNER }}
           cat .env
+
+      - name: Send To Notion
+        run: |
+          python send_to_notion.py ${{ job.status }}
