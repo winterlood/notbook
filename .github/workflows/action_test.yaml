@@ -24,6 +24,7 @@ jobs:
           echo "GA_TRACKING_ID=${{ secrets.GA_TRACKING_ID }}" >> .env
           echo "ANALYZE=${{ secrets.ANALYZE }}" >> .env
           echo "GITHUB_REPOSITORY=${{ github.repository }}" >> .env
+          echo "NOTION_API_KEY=${{ secrets.NOTION_API_KEY }}" >> .env
           echo "NOTION_HISTORY_ID=${{ secrets.NOTION_HISTORY_ID }}" >> .env
           echo ${{ github.repository_owner }}
           echo ${{ github.repository }}
